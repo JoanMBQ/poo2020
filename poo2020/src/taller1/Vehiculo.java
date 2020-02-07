@@ -65,7 +65,7 @@ public class Vehiculo {
      *
      * @param origen
      */
-    public void actualizarOrigenr(String origen){
+    public void actualizarOrigen(String origen){
         this.origen = origen;
     }
     /**
@@ -91,5 +91,11 @@ public class Vehiculo {
      */
     public void actualizarCapacidad_Combustible(double capacidad_combustible){
         this.capacidad_combustible = capacidad_combustible;
+    }
+
+    public String obtenerVehiculo() {
+        String cadena = String.format("Marca: %s \nOrigen: %s \nPeso: %s Kg \nPrecio: $%2f \nCapacidad de Combustible: %2f Lt",
+                marca, origen, peso, precio, capacidad_combustible);
+        return cadena;
     }
 }

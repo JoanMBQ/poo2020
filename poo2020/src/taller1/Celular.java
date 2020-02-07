@@ -3,8 +3,8 @@ package taller1;
 public class Celular {
     private String marca;
     private String procesador;
-    private double almacenamiento;
-    private double ram;
+    private int almacenamiento;
+    private int ram;
     private double precio;
 
     // Metodos para obtener valores
@@ -30,7 +30,7 @@ public class Celular {
      *
      * @return almacenamiento
      */
-    public double obtenerAlmacenamiento() {
+    public int obtenerAlmacenamiento() {
         return almacenamiento;
     }
     /**
@@ -38,7 +38,7 @@ public class Celular {
      *
      * @return ram
      */
-    public double obtenerRam() {
+    public int obtenerRam() {
         return ram;
     }
     /**
@@ -73,7 +73,7 @@ public class Celular {
      *
      * @param almacenamiento
      */
-    public void actualizarAlmacenamiento(double almacenamiento){
+    public void actualizarAlmacenamiento(int almacenamiento){
         this.almacenamiento = almacenamiento;
     }
     /**
@@ -81,7 +81,7 @@ public class Celular {
      *
      * @param ram
      */
-    public void actualizarRam(double ram){
+    public void actualizarRam(int ram){
         this.ram = ram;
     }
     /**
@@ -91,5 +91,11 @@ public class Celular {
      */
     public void actualizarPrecio(double precio){
         this.precio = precio;
+    }
+
+    public String obtenerCelular() {
+        String cadena = String.format("Marca: %s \nProcesador: %s \nAlmacenamiento: %d Gb \nRam: %d Gb \nPrecio: $%2f",
+                marca, procesador, almacenamiento, ram, precio);
+        return cadena;
     }
 }

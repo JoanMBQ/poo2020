@@ -92,6 +92,7 @@ public class Universidad {
     public void actualizarDepartamentos(String departamentos){
         this.departamentos = departamentos;
     }
+
     public String obtenerUniversidad() {
         String cadena = String.format("Tipo: %s \nEstudiante: %s \nDocente: %s \nCarrera: %s \nDepartamento: %s",
                 tipo, estudiantes, docentes, carrera, departamentos);

@@ -92,4 +92,9 @@ public class Computadora {
     public void actualizarPeso(double peso){
         this.peso = peso;
     }
+    public String obtenerComputadora() {
+        String cadena = String.format("Marca: %s \nColor: %s \nProcesador: %s \nVelocidad del Procesador: %2f GHz \nPeso: %2f Kg",
+                marca, color, procesador, velocidad_Procesador, peso);
+        return cadena;
+    }
 }

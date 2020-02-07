@@ -58,7 +58,7 @@ public class Animal {
      *
      * @param tipo
      */
-    public void actualizaTipo(String tipo){
+    public void actualizarTipo(String tipo){
         this.tipo = tipo;
     }
     /**
@@ -90,7 +90,13 @@ public class Animal {
      *
      * @param peso
      */
-    public void actualizarEdad(double peso){
+    public void actualizarPeso(double peso){
         this.peso = peso;
+    }
+
+    public String obtenerAnimal() {
+        String cadena = String.format("Tipo: %s \nNombre: %s \nEspecie: %s \nTipo de Reproducción: %s \nPeso: %2f Kg",
+                tipo, nombre, especie, tipo_Reproduccion, peso);
+        return cadena;
     }
 }
