@@ -1,4 +1,4 @@
-package diseñopoo;
+package diseniopoo;
 
 public class Cerveza {
     private double precio;

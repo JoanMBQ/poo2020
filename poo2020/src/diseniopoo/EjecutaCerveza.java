@@ -1,4 +1,4 @@
-package diseñopoo;
+package diseniopoo;
 
 import java.util.Scanner;
 
