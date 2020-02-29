@@ -11,7 +11,6 @@ public class Persona {
     protected String estado_civil;
     protected String fecha_nacimiento;
 
-
     public String getNombre() {
         return nombre;
     }
