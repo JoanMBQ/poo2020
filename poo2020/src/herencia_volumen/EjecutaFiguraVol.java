@@ -9,7 +9,7 @@ public class EjecutaFiguraVol {
 
         String nombre;
         double arista;
-        double radioCilindro, alturaCilindro, volumenCilindro = 0;
+        double radioCilindro, alturaCilindro;
         double radioCono, alturaCono;
         double radioEsfera;
         Scanner teclado = new Scanner(System.in);
