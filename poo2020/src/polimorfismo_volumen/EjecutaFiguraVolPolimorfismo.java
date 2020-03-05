@@ -1,8 +1,8 @@
-package herencia_volumen;
+package polimorfismo_volumen;
 
 import java.util.Scanner;
 
-public class EjecutaFiguraVol {
+public class EjecutaFiguraVolPolimorfismo {
     public static void main(String[] args) {
 
         String nombre;
@@ -20,18 +20,20 @@ public class EjecutaFiguraVol {
             case ("CUBO"):
                 System.out.println("Ingrese la arista del cubo: ");
                 arista = teclado.nextDouble();
-                // Creacion del objeto de la clase triangulo
-                Cubo cubo = new Cubo(arista, nombre);
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cubo.calcularVolumenCubo());
+                // Creacion del objeto de la clase cubo
+                CuboPolimorfismo cuboPolimorfismo = new CuboPolimorfismo(arista, nombre);
+                cuboPolimorfismo.calcularVolumen();
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cuboPolimorfismo.getArea());
                 break;
             case ("CILINDRO"):
                 System.out.println("Ingrese el radio del cilindro: ");
                 radioCilindro = teclado.nextDouble();
                 System.out.println("Ingrese la altura del cilindro: ");
                 alturaCilindro = teclado.nextDouble();
-                // Creacion del objeto de la clase rectangulo
-                Cilindro cilindro = new Cilindro(radioCilindro, alturaCilindro, nombre);
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cilindro.calcularVolumenCilindro());
+                // Creacion del objeto de la clase cilindro
+                CilindroPolimorfismo cilindroPolimorfismo = new CilindroPolimorfismo(radioCilindro, alturaCilindro, nombre);
+                cilindroPolimorfismo.calcularVolumen();
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cilindroPolimorfismo.getArea());
                 break;
             case ("CONO"):
                 System.out.println("Ingrese el radio del cono: ");
@@ -39,15 +41,17 @@ public class EjecutaFiguraVol {
                 System.out.println("Ingrese la altura del cono: ");
                 alturaCono = teclado.nextDouble();
                 // Creacion del objeto de la clase cono
-                Cono cono = new Cono(radioCono, alturaCono, nombre);
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cono.calcularVolumenCono());
+                ConoPolimorfismo conoPolimorfismo = new ConoPolimorfismo(radioCono, alturaCono, nombre);
+                conoPolimorfismo.calcularVolumen();
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), conoPolimorfismo.getArea());
                 break;
             case ("ESFERA"):
                 System.out.println("Ingrese el radio la esfera: ");
                 radioEsfera = teclado.nextDouble();
                 // Creacion del objeto de la clase esfera
-                Esfera esfera = new Esfera(radioEsfera, nombre);
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), esfera.calcularVolumenEsfera());
+                EsferaPolimorfismo esferaPolimorfismo = new EsferaPolimorfismo(radioEsfera, nombre);
+                esferaPolimorfismo.calcularVolumen();
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), esferaPolimorfismo.getArea());
                 break;
             default:
                 System.out.println("Ingrese una opcion valida");
