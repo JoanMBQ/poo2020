@@ -40,7 +40,6 @@ public abstract class Empleados {
         this.puesto = puesto;
     }
 
-
     public double getQuincena() {
         return quincena;
     }
