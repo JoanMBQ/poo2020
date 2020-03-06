@@ -9,14 +9,14 @@ public class EmpMecanico extends Empleados{
     public EmpMecanico(double valorTrabajo, int trabajos, String nombre, String RFC, String departamento, String puesto) {
         this.valorTrabajo = valorTrabajo;
         this.trabajos = trabajos;
-        this.nombre = nombre;
-        this.RFC = RFC;
-        this.departamento = departamento;
-        this.puesto = puesto;
+        this.setNombre(nombre);
+        this.setRFC(RFC);
+        this.setDepartamento(departamento);
+        this.setPuesto(puesto);
     }
 
-    public double calcularQuincenaMecanicos(){
+    @Override
+    public void calcularQuincena() {
         quincena = (trabajos * valorTrabajo) * 0.04;
-        return quincena;
     }
 }

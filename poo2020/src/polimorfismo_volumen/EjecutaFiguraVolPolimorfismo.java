@@ -23,7 +23,7 @@ public class EjecutaFiguraVolPolimorfismo {
                 // Creacion del objeto de la clase cubo
                 CuboPolimorfismo cuboPolimorfismo = new CuboPolimorfismo(arista, nombre);
                 cuboPolimorfismo.calcularVolumen();
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cuboPolimorfismo.getArea());
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cuboPolimorfismo.getVolumen());
                 break;
             case ("CILINDRO"):
                 System.out.println("Ingrese el radio del cilindro: ");
@@ -33,7 +33,7 @@ public class EjecutaFiguraVolPolimorfismo {
                 // Creacion del objeto de la clase cilindro
                 CilindroPolimorfismo cilindroPolimorfismo = new CilindroPolimorfismo(radioCilindro, alturaCilindro, nombre);
                 cilindroPolimorfismo.calcularVolumen();
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cilindroPolimorfismo.getArea());
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), cilindroPolimorfismo.getVolumen());
                 break;
             case ("CONO"):
                 System.out.println("Ingrese el radio del cono: ");
@@ -43,7 +43,7 @@ public class EjecutaFiguraVolPolimorfismo {
                 // Creacion del objeto de la clase cono
                 ConoPolimorfismo conoPolimorfismo = new ConoPolimorfismo(radioCono, alturaCono, nombre);
                 conoPolimorfismo.calcularVolumen();
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), conoPolimorfismo.getArea());
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), conoPolimorfismo.getVolumen());
                 break;
             case ("ESFERA"):
                 System.out.println("Ingrese el radio la esfera: ");
@@ -51,7 +51,7 @@ public class EjecutaFiguraVolPolimorfismo {
                 // Creacion del objeto de la clase esfera
                 EsferaPolimorfismo esferaPolimorfismo = new EsferaPolimorfismo(radioEsfera, nombre);
                 esferaPolimorfismo.calcularVolumen();
-                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), esferaPolimorfismo.getArea());
+                System.out.printf("Figura: %s\nVolumen: %.2f", nombre.toUpperCase(), esferaPolimorfismo.getVolumen());
                 break;
             default:
                 System.out.println("Ingrese una opcion valida");

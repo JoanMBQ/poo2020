@@ -1,7 +1,7 @@
-package herencia_deudores;
+package polimorfismo_deudores;
 
-public class PrestamoAuto extends Deudores {
-    private double interesM, totalInteres;
+public class PrestamoAuto extends  Deudores{
+    private double interesM;
 
     public PrestamoAuto(String nombre, double capital, double plazos, String numeroC) {
         this.nombre = nombre;
@@ -10,13 +10,13 @@ public class PrestamoAuto extends Deudores {
         this.numeroC = numeroC;
     }
 
-    public double calcularInteresAuto(){
+    @Override
+    public void calcularInteres(){
         double meses = plazos * 12;
         double f = 6.5 / 12;
         double i = f / 100;
         double a = 1 + i;
         interesM = capital* (Math.pow(a, meses) * i / (Math.pow(a, meses)-1));
         totalInteres = (interesM * meses) - capital;
-        return totalInteres;
     }
 }

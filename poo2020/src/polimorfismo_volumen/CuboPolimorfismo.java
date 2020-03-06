@@ -1,7 +1,5 @@
 package polimorfismo_volumen;
 
-import static java.lang.Math.PI;
-
 public class CuboPolimorfismo extends FiguraVolPolimorfismo {
 
     // Atributos propios de la clase

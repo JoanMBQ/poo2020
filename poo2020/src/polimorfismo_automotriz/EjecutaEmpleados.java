@@ -8,11 +8,13 @@ public class EjecutaEmpleados {
         int numEmp = 0;
         Scanner entrada = new Scanner(System.in);
 
-        String cadena = String.format("%50s\n%-10s%-20s%-20s%-20s%-20s\n","REPORTE DE NÓMINA QUINCENAL","RFC","NOMBRE",
-                "DEPTO", "PUESTO","SUELDO QUINCENA");
+        String cadena = String.format("\u001b[30m%55s\u001b[0m\n\033[01m%-15s%-20s%-20s%-20s%-20s\033[0m" +
+                        "\n--------------------------------------------------------------------------------------\n",
+                        "REPORTE DE NÓMINA QUINCENAL","RFC","NOMBRE", "DEPTO", "PUESTO","SUELDO QUINCENA");
+
         do {
-            System.out.println("Ingrese el tipo de empleado: \n1. ADMINISTRATIVO \n2. MECANICO \n3. VENDEDOR \n4. SALIR" +
-                    "\nDigite una opción: ");
+            System.out.println("Ingrese el tipo de empleado: \u001b[30m\n1. ADMINISTRATIVO \n2. MECANICO \n3. VENDEDOR " +
+                    "\n4. SALIR\u001b[0m\nDigite una opción: ");
             int opcion = entrada.nextInt();
             entrada.nextLine();
             if (opcion == 4){
@@ -33,11 +35,11 @@ public class EjecutaEmpleados {
 
                 // CREACION DEL OBJETO Y ENVIO DE PARAMETROS AL CONSTRUCTOR
                 EmpAdmvo admin = new EmpAdmvo(mensual, nombre,rfc,dep,puesto);
-
+                admin.calcularQuincena();
                 // ACUMULACIÓN DE CADENAS PARA EL FORMATO DE LA PRESENTACIÓN
-                cadena = String.format("%s%-10s%-20s%-20s%-20s%-20.2f\n"
+                cadena = String.format("%s%-15s%-20s%-20s%-20s%-20.2f\n"
                         , cadena, admin.getRFC(), admin.getNombre(),
-                        admin.getDepartamento(), admin.getPuesto(), admin.calcularQuincenaAdmins());
+                        admin.getDepartamento(), admin.getPuesto(), admin.getQuincena());
             }else{
                 if (opcion == 2){
                     String dep = "MECANICO";
@@ -55,11 +57,12 @@ public class EjecutaEmpleados {
 
                     // CREACION DEL OBJETO Y ENVIO DE PARAMETROS AL CONSTRUCTOR
                     EmpMecanico empMecanico = new EmpMecanico(valorTra, numeroTr,nombre,rfc,dep,puesto);
+                    empMecanico.calcularQuincena();
 
                     // ACUMULACIÓN DE CADENAS PARA EL FORMATO DE LA PRESENTACIÓN
-                    cadena = String.format("%s%-10s%-20s%-20s%-20s%-20.2f\n"
+                    cadena = String.format("%s%-15s%-20s%-20s%-20s%-20.2f\n"
                             , cadena, empMecanico.getRFC(), empMecanico.getNombre(),
-                            empMecanico.getDepartamento(), empMecanico.getPuesto(), empMecanico.calcularQuincenaMecanicos());
+                            empMecanico.getDepartamento(), empMecanico.getPuesto(), empMecanico.getQuincena());
                 }else{
                     if (opcion == 3){
                         String dep = "VENDEDOR";
@@ -76,15 +79,17 @@ public class EjecutaEmpleados {
 
                         // CREACION DEL OBJETO Y ENVIO DE PARAMETROS AL CONSTRUCTOR
                         EmpVendedor empVendedor = new EmpVendedor(valorV, salariomin, nombre,rfc,dep,puesto);
+                        empVendedor.calcularQuincena();
                         // ACUMULACIÓN DE CADENAS PARA EL FORMATO DE LA PRESENTACIÓN
-                        cadena = String.format("%s%-10s%-20s%-20s%-20s%-20.2f\n"
-                                , cadena, empVendedor.getRFC(), empVendedor.getNombre(), empVendedor.getDepartamento(),
-                                empVendedor.getPuesto(), empVendedor.calcularQuincenaVendedores());
+                        cadena = String.format("%s%-15s%-20s%-20s%-20s%-20.2f\n"
+                                , cadena, empVendedor.getRFC(), empVendedor.getNombre(), empVendedor.getQuincena(),
+                                empVendedor.getPuesto(), empVendedor.getQuincena());
                     }
                 }
             }
 
         }while (bandera);
-        System.out.printf("%s\nTOTAL %d EMPLEADOS",cadena, numEmp);
+        System.out.printf("%s--------------------------------------------------------------------------------------\n" +
+                "TOTAL \033[01m%d\033[0m EMPLEADOS",cadena, numEmp);
     }
 }

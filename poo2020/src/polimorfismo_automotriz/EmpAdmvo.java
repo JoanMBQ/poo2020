@@ -2,19 +2,18 @@ package polimorfismo_automotriz;
 
 public class EmpAdmvo extends Empleados{
 
-    private double quincena;
     private double mensual;
 
     public EmpAdmvo(double mensual, String nombre, String RFC, String departamento, String puesto) {
         this.mensual = mensual;
-        this.nombre = nombre;
-        this.RFC = RFC;
-        this.departamento = departamento;
-        this.puesto = puesto;
+        this.setNombre(nombre);
+        this.setRFC(RFC);
+        this.setDepartamento(departamento);
+        this.setPuesto(puesto);
     }
 
-    public double calcularQuincenaAdmins(){
+    @Override
+    public void calcularQuincena() {
         quincena = mensual / 2;
-        return quincena;
     }
 }

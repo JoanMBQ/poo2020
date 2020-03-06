@@ -13,11 +13,11 @@ public abstract class FiguraVolPolimorfismo {
         this.nombre = nombre;
     }
 
-    public double getArea() {
+    public double getVolumen() {
         return volumen;
     }
 
-    public void setArea(double volumen) {
+    public void setVolumen(double volumen) {
         this.volumen = volumen;
     }
 

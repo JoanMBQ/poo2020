@@ -1,11 +1,12 @@
 package polimorfismo_automotriz;
 
-public class Empleados {
+public abstract class Empleados {
 
     protected String RFC;
     protected String nombre;
     protected String departamento;
     protected String puesto;
+    protected double quincena;
 
     public String getRFC() {
         return RFC;
@@ -38,4 +39,18 @@ public class Empleados {
     public void setPuesto(String puesto) {
         this.puesto = puesto;
     }
+
+
+    public double getQuincena() {
+        return quincena;
+    }
+
+    public void setQuincena(double quincena) {
+        this.quincena = quincena;
+    }
+
+    /**
+     * Metodo Abstracto que heredaran todas las clases hijas
+     */
+    public abstract void calcularQuincena();
 }

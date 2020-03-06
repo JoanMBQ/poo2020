@@ -9,14 +9,14 @@ public class EmpVendedor extends Empleados{
     public EmpVendedor(double salarioMin, double ventas, String nombre, String RFC, String departamento, String puesto) {
         this.salarioMin = salarioMin;
         this.ventas = ventas;
-        this.nombre = nombre;
-        this.RFC = RFC;
-        this.departamento = departamento;
-        this.puesto = puesto;
+        this.setNombre(nombre);
+        this.setRFC(RFC);
+        this.setDepartamento(departamento);
+        this.setPuesto(puesto);
     }
 
-    public double calcularQuincenaVendedores(){
+    @Override
+    public void calcularQuincena() {
         quincena = salarioMin + (0.02 * ventas);
-        return quincena;
     }
 }

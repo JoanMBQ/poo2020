@@ -1,4 +1,4 @@
-package herencia_deudores;
+package polimorfismo_deudores;
 
 import java.util.Scanner;
 
@@ -7,8 +7,9 @@ public class EjecutaDeudores {
         Scanner entrada = new Scanner(System.in);
         boolean bandera = true;
         int count = 0;
-        String cadena = String.format("%45s\n%-20s%-20s%-20s%-20s\n","REPORTE CLIENTES DEUDORES",
-                "No. Cliente","Nombre", "No. Cuenta", "Total Intereses");
+        String cadena = String.format("\u001b[30m%45s\u001b[0m\n\033[01m%-20s%-20s%-20s%-20s\033[0m" +
+                        "\n--------------------------------------------------------------------------------------\n",
+                "REPORTE CLIENTES DEUDORES", "No. Cliente","Nombre", "No. Cuenta", "Total Intereses");
 
         do {
 
@@ -33,9 +34,11 @@ public class EjecutaDeudores {
 
                     // CREACION DEL OBJETO Y ENVIO DE PARAMETROS AL CONSTRUCTOR
                     PrestamoHipotecario hipotecario = new PrestamoHipotecario(nombre, capital, plazos, numeroC);
+                    hipotecario.calcularInteres();
+
                     // ACUMULACIÓN DE CADENAS PARA EL FORMATO DE LA PRESENTACIÓN
                     cadena = String.format("%s%-20d%-20s%-20s%-20.2f\n", cadena, count,
-                            hipotecario.getNombre(), hipotecario.getNumeroC(), hipotecario.calcularInteresHipoteca());
+                            hipotecario.getNombre(), hipotecario.getNumeroC(), hipotecario.getTotalInteres());
                     break;
                 case 2:
                     System.out.println("Ingrese su nombre:");
@@ -50,9 +53,11 @@ public class EjecutaDeudores {
 
                     // CREACION DEL OBJETO Y ENVIO DE PARAMETROS AL CONSTRUCTOR
                     PrestamoAuto auto = new PrestamoAuto(nombre, capital, plazos, numeroC);
+                    auto.calcularInteres();
+
                     // ACUMULACIÓN DE CADENAS PARA EL FORMATO DE LA PRESENTACIÓN
                     cadena = String.format("%s%-20d%-20s%-20s%-20.2f\n", cadena, count, auto.getNombre(),
-                            auto.getNumeroC(), auto.calcularInteresAuto());
+                            auto.getNumeroC(), auto.getTotalInteres());
                     break;
                 case 3:
                     System.out.println("Ingrese su nombre:");
@@ -67,9 +72,11 @@ public class EjecutaDeudores {
 
                     // CREACION DEL OBJETO Y ENVIO DE PARAMETROS AL CONSTRUCTOR
                     PrestamoPersonal personal = new PrestamoPersonal(nombre, capital, plazos, numeroC);
+                    personal.calcularInteres();
+
                     // ACUMULACIÓN DE CADENAS PARA EL FORMATO DE LA PRESENTACIÓN
                     cadena = String.format("%s%-20d%-20s%-20s%-20.2f\n", cadena, count,
-                            personal.getNombre(), personal.getNumeroC(), personal.calcularInteresPersonal());
+                            personal.getNombre(), personal.getNumeroC(), personal.getTotalInteres());
                     break;
                 default:
                     System.out.println("Digite una opción correcta");
@@ -77,6 +84,7 @@ public class EjecutaDeudores {
             }
 
         }while(bandera);
-        System.out.printf("%s\nTOTAL %d CLIENTES\n", cadena, count);
+        System.out.printf("%s--------------------------------------------------------------------------------------\n" +
+                "TOTAL \033[01m%d\033[0m CLIENTES\n", cadena, count);
     }
 }
